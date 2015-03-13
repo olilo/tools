@@ -5,8 +5,9 @@ from thread import start_new_thread
 import Tkinter as tk
 
 def update_mouse_position(var):
+	screen = display.Display().screen().root
 	while True:
-		data = display.Display().screen().root.query_pointer()._data
+		data = screen.query_pointer()._data
 		pos = "(%s, %s)" % (data["root_x"], data["root_y"])
 		var.set(pos)
 		time.sleep(0.1)
